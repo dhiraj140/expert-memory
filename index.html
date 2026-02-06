@@ -2,22 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DB College Result Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
     <h1>DB College</h1>
-    <h2>Result Portal</h2>
+    <h2>Online Result Portal</h2>
 </header>
 
 <main>
-    <form id="result-form">
-        <label>Select Standard:</label>
+    <form id="result-form" onsubmit="return false;">
+        <label for="standard">Select Standard</label>
         <select id="standard">
-            <option value="">--Choose Standard--</option>
+            <option value="">-- Choose Standard --</option>
             <option value="5th">5th</option>
             <option value="6th">6th</option>
             <option value="7th">7th</option>
@@ -26,25 +26,25 @@
             <option value="10th">10th</option>
         </select>
 
-        <label>Roll Number:</label>
+        <label for="roll">Roll Number</label>
         <input type="text" id="roll" placeholder="Enter Roll Number">
 
-        <button type="button" id="check-result">Check Result</button>
+        <button id="check-result">Check Result</button>
     </form>
 
+    <!-- RESULT -->
     <div id="result-container" class="hidden">
-        <h3>Student Result</h3>
+        <h3>Student Marksheet</h3>
         <table id="result-table"></table>
         <button id="print-result">Print Result</button>
     </div>
 
+    <!-- ERROR -->
     <div id="error-message" class="hidden error">
-        Result not found. Please check Roll Number and Standard.
+        ❌ Result not found. Please check Roll Number and Standard.
     </div>
 </main>
 
-<!-- JS linked correctly -->
 <script src="script.js"></script>
-
 </body>
 </html>
