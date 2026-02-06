@@ -39,7 +39,7 @@ document.getElementById("check-result").addEventListener("click", () => {
                 result: idx("result")
             };
 
-            let foundRow = null;
+            let found = null;
 
             for (let r = 1; r < rows.length; r++) {
                 const cols = rows[r].split(",").map(c => c.trim());
@@ -48,39 +48,35 @@ document.getElementById("check-result").addEventListener("click", () => {
                     cols[i.roll] === roll &&
                     cols[i.standard].toLowerCase() === standard.toLowerCase()
                 ) {
-                    foundRow = cols;
+                    found = cols;
                     break;
                 }
             }
 
-            if (!foundRow) {
+            if (!found) {
                 document.getElementById("error-message").classList.remove("hidden");
                 return;
             }
 
-            // ✅ DISPLAY RESULT
             document.getElementById("result-table").innerHTML = `
-                <tr><th>Student Name</th><td>${foundRow[i.name]}</td></tr>
-                <tr><th>Marathi</th><td>${foundRow[i.marathi]}</td></tr>
-                <tr><th>Hindi</th><td>${foundRow[i.hindi]}</td></tr>
-                <tr><th>English</th><td>${foundRow[i.english]}</td></tr>
-                <tr><th>Maths</th><td>${foundRow[i.maths]}</td></tr>
-                <tr><th>Science</th><td>${foundRow[i.science]}</td></tr>
-                <tr><th>Total</th><td>${foundRow[i.total]}</td></tr>
+                <tr><th>Student Name</th><td>${found[i.name]}</td></tr>
+                <tr><th>Marathi</th><td>${found[i.marathi]}</td></tr>
+                <tr><th>Hindi</th><td>${found[i.hindi]}</td></tr>
+                <tr><th>English</th><td>${found[i.english]}</td></tr>
+                <tr><th>Maths</th><td>${found[i.maths]}</td></tr>
+                <tr><th>Science</th><td>${found[i.science]}</td></tr>
+                <tr><th>Total</th><td>${found[i.total]}</td></tr>
                 <tr>
                     <th>Result</th>
-                    <td class="${foundRow[i.result] === 'Pass' ? 'pass' : 'fail'}">
-                        ${foundRow[i.result]}
+                    <td class="${found[i.result] === 'Pass' ? 'pass' : 'fail'}">
+                        ${found[i.result]}
                     </td>
                 </tr>
             `;
 
             document.getElementById("result-container").classList.remove("hidden");
         })
-        .catch(err => {
-            console.error(err);
-            alert("Error loading result");
-        });
+        .catch(() => alert("Error loading result"));
 });
 
 document.getElementById("print-result").addEventListener("click", () => {
