@@ -17,8 +17,9 @@ document.getElementById('check-result').addEventListener('click', function() {
     
     // WHERE TO PASTE GOOGLE SHEET URL:
     // Replace the URL below with your published Google Sheet CSV URL.
-    // Example: 'https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID/pub?output=csv'
-    const sheetUrl = 'PASTE_YOUR_GOOGLE_SHEET_CSV_URL_HERE';
+    // Example: 'const sheetCSV = "https://docs.google.com/spreadsheets/d/1Z3I8OzAkb627gxcg6BqCOHcr9X_d7YZeaGLXNK0UVjc/gviz/tq?tqx=out:csv";
+'
+    const sheetUrl = 'https://docs.google.com/spreadsheets/d/1Z3I8OzAkb627gxcg6BqCOHcr9X_d7YZeaGLXNK0UVjc/gviz/tq?tqx=out:csv';
     
     // Fetch the CSV data from Google Sheets
     fetch(sheetUrl)
